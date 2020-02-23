@@ -18,7 +18,11 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log in</a></li>
+        <% if session[:current_user_id] %>
+          <li><%= link_to "logout", logout_path %></li>
+        <% else %>
+          <li><%= link_to "login", login_path %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
