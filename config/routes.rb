@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
   root 'home#index'
   resources :microposts
   namespace :admin do
     resources :users
+    resources :microposts
     resources :sessions, only:[:new, :create, :destroy]
   end
   get '/login' => 'admin/sessions#new'
