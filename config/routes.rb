@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   namespace :admin do
-    resources :users
+    resources :users, only:[:index, :show, :edit, :update]
     resources :microposts
     resources :sessions, only:[:new, :create, :destroy]
   end
