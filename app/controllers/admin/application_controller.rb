@@ -1,4 +1,4 @@
-class Admin::ApplicationController < ApplicationController
+class Admin::ApplicationController < ActionController::Base
   before_action :authorize
   def current_user
     @user ||= User.find(session[:current_user_id]) if session[:current_user_id]
