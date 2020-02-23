@@ -11,7 +11,7 @@ class Admin::MicropostsController < Admin::ApplicationController
 
   # GET /admin/microposts/new
   def new
-    @micropost = Micropost.new
+    @micropost = current_user.microposts.new
   end
 
   # GET /admin/microposts/1/edit
@@ -21,7 +21,7 @@ class Admin::MicropostsController < Admin::ApplicationController
   # POST /microposts
   # POST /microposts.json
   def create
-    @micropost = Micropost.new(micropost_params)
+    @micropost = current_user.microposts.new(micropost_params)
 
     respond_to do |format|
       if @micropost.save
