@@ -1,6 +1,12 @@
-<h1>Editing Micropost</h1>
+<div id="content">
+  <header>
+    <h2 class="page_title">Edit article</h2>
+  </header>
 
-<%= render 'form', micropost: @micropost %>
-
-<%= link_to 'Show', admin_micropost_path(@micropost) %> |
-<%= link_to 'Back', admin_microposts_path %>
+  <div class="content-inner">
+    <div class="form-wrapper">
+      <%= render 'form', micropost: @micropost %>
+    </div>
+    <%= link_to 'Back', admin_microposts_path %>
+  </div>
+</div>

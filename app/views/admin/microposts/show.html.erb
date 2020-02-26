@@ -1,19 +1,33 @@
 <p id="notice"><%= notice %></p>
+<div id="content">
+  <header class="clearfix">
+    <h2 class="page_title pull-left">All articles</h2>
+    <%= link_to 'Create new article', new_admin_micropost_path, class: "btn btn-xs btn-primary pull-right" %>
+  </header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @micropost.title %>
-</p>
+  <div class="content-inner">
+    <div class="row article-row">
+      <div class="col-xs-12 col-sm-7 col-md-9 article-title">
+        <p><%= @micropost.title %></p>
+        <small><%= @micropost.created_at.strftime("%d/%m/%Y") %> by <%= User.find_by_id(@micropost.user_id).fullname %></small>
+        <p></p>
+        <p><%= @micropost.content %></p>
+      </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @micropost.content %>
-</p>
+      <div class="col-xs-10 col-sm-5 col-md-3 col-xs-offset-2 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+        <div class="article-actions">
+          <%= link_to edit_admin_micropost_path(@micropost), class: "btn btn-xs btn-default" do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;Edit</span>
+          <% end %>
+          <%= link_to admin_micropost_path(@micropost), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-default" do%>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true">&nbsp;Delete</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <%= link_to 'Back', admin_microposts_path %>
+  </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @micropost.user_id %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_admin_micropost_path(@micropost) %> |
-<%= link_to 'Back', admin_microposts_path %>

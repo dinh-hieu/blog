@@ -10,18 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <label class="sr-only">Title</label>
+    <%= form.text_field :title, class: "form-control", id: "title", placeholder: "Title" %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="form-group">
+    <label class="sr-only">Content</label>
+    <%= form.text_area :content, class: "form-control summernote", placeholder: "Content" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="clearfix">
+    <%= form.submit :class => "btn btn-primary pull-right" %>
   </div>
 <% end %>
