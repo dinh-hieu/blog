@@ -1,14 +1,29 @@
 <p id="notice"><%= notice %></p>
+<header class="clearfix">
+  <div class="col-xs-5 col-sm-3 col-md-3"><b>All User</b></div>
+  <div class="col-xs-7 col-sm-9 col-md-9">
+    <%= link_to "Create new article",  new_admin_user_path, class: "btn btn-xs btn-primary pull-right", type: "button" %>
+  </div>
+</header>
 
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_admin_user_path(@user) %> |
-<%= link_to 'Back', admin_users_path %>
+<div class="content-inner">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th class="hidden-xs">Created</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= @user.fullname %></td>
+          <td><%= @user.email %></td>
+          <td class="hidden-xs"><%= @user.created_at.strftime("%d/%m/%Y") %></td>
+          <th><%= link_to 'edit', edit_admin_user_path(@user), class: "btn btn-xs btn-warning" %> </th>
+        </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Back', admin_users_path %>
+</div>

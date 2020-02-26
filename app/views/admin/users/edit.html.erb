@@ -1,6 +1,12 @@
-<h1>Editing Admin User</h1>
+<div id="content">
+  <header>
+    <h2 class="page_title">Edit User</h2>
+  </header>
 
-<%= render 'form', admin_user: @admin_user %>
-
-<%= link_to 'Show', @admin_user %> |
-<%= link_to 'Back', admin_users_path %>
+  <div class="content-inner">
+    <div class="form-wrapper">
+      <%= render 'form', admin_user: @admin_user %>
+    </div>
+    <%= link_to 'Show', @admin_user %> | <%= link_to 'Back', admin_users_path %>
+  </div>
+</div>

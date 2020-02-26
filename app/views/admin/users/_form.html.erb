@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :fullname %>
-    <%= form.text_field :fullname %>
+  <div class="form-group">
+    <label class="sr-only">Full Name</label>
+    <%= form.text_field :fullname, class: "form-control", id: "fullname", placeholder: "Full Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="form-group">
+    <label class="sr-only">Email</label>
+    <%= form.email_field :email, class: "form-control", id: "email", placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+  <div class="form-group">
+    <label class="sr-only">Password</label>
+    <%= form.password_field :password, class: "form-control", id: "password", placeholder: "Password" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="clearfix">
+    <%= form.submit :class=> "btn btn-primary pull-right"%>
   </div>
 <% end %>
