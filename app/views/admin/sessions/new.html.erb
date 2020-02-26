@@ -1,15 +1,18 @@
-<h1>login</h1>
-<%= form_tag  admin_sessions_path do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+<%= stylesheet_link_tag 'bootstrap.min' %>
+<%= stylesheet_link_tag 'login' %>
+<div class="container">
+  <%= form_tag admin_sessions_path, class: "form-signin" do %>
+    <h1 class="text-center">sign in</h1>
+    <p>
+      <%= label_tag :email, "Email address", class: "sr-only" %>
+      <%= email_field_tag :email, '', class: "form-control", placeholder: "Email address", required: true, autofocus: true %>
+    </p>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+    <p>
+      <%= label_tag :password, "Password", class: "sr-only" %>
+      <%= password_field_tag :password, '', placeholder: "Password", class: "form-control", required:true %>
+    </p>
+    <%= submit_tag "login", class: "btn btn-primary btn-block" %>
 
-  <%= submit_tag "login" %>
-
-  <br>
-  <p></p>
-  <p>tk login</p>
-  <p>user: dinhhieu.dlk@gmail.com<br>pass: dinhhieu</p>
-<% end %>
+  <% end %>
+</div>

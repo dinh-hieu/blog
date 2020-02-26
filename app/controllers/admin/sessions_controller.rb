@@ -1,5 +1,6 @@
 class Admin::SessionsController < Admin::ApplicationController
   before_action :authorize, except: [:new, :create]
+  layout false
 
   def new
   end
