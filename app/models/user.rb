@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :fullname, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: /@/,message: "email is valid" }
   validates :password, presence: true
+  paginates_per 50
 
   def self.search(search)
     if search

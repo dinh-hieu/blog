@@ -279,3 +279,15 @@ html, body {
 .pagination a {
 	color: #1ab394 !important;
 }
+
+.pagination>span>a, .pagination>span.current, .pagination>span.gap {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #428bca;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}

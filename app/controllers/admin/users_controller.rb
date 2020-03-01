@@ -7,7 +7,7 @@ class Admin::UsersController < Admin::ApplicationController
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
     else
-      @users = User.all
+      @users = User.all.page params[:page]
     end
   end
 
