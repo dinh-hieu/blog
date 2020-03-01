@@ -21,6 +21,7 @@
     <div class="row article-row">
       <div class="col-xs-12 col-sm-7 col-md-9 article-title">
         <p><%= micropost.title %></p>
+        <p>Category: <%= Category.find_by_id(micropost.category_id).name %></p>
         <small><%= micropost.created_at.strftime("%d/%m/%Y") %></small>
       </div>
 
