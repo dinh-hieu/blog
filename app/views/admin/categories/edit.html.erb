@@ -1,0 +1,13 @@
+<div id="content">
+  <header>
+    <h2 class="page_title">Edit Category</h2>
+  </header>
+
+  <div class="content-inner">
+    <div class="form-wrapper">
+      <%= render 'form', admin_category: @admin_category %>
+    </div>
+    <%= link_to 'Show', @admin_category %> | <%= link_to 'Back', admin_categories_path %>
+  </div>
+</div>
+

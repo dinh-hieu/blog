@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<header class="clearfix">
+  <div class="col-xs-5 col-sm-3 col-md-3"><b>All User</b></div>
+  <div class="col-xs-7 col-sm-9 col-md-9">
+    <%= link_to "New Category",  new_admin_category_path, class: "btn btn-xs btn-primary pull-right", type: "button" %>
+  </div>
+</header>
+
+<div class="content-inner">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th class="hidden-xs">Created</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%  @categories.each.with_index(1) do |category, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= category.name %></td>
+          <td class="hidden-xs"><%= category.created_at.strftime("%d/%m/%Y") %></td>
+          <th><%= link_to 'Show', admin_category_path(category), class: "btn btn-xs btn-primary" %>  <%= link_to 'Edit', edit_admin_category_path(category), class: "btn btn-xs btn-warning" %>  <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
