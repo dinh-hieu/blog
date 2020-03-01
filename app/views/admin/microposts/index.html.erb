@@ -9,10 +9,10 @@
     <div class="row search-row">
       <div class="col-md-12">
         <div class="input-group">
-          <input type="text" class="form-control search-field" id="search" placeholder="Search">
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-primary go">Go!</button>
-          </span>
+          <%= form_tag admin_microposts_path, method: "get", id: "filter", class: "filter" do %>
+            <%= label_tag "Filter category" %>
+            <%= select_tag "category_id",options_for_select(Category.all.collect {|c| [ c.name, c.id ]},params[:category_id]), prompt: 'All', class: "form-control search-field",onchange: "$('#filter').submit();" %>
+          <% end %>
         </div>
       </div>
     </div>

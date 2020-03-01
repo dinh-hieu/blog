@@ -2,6 +2,7 @@ class Admin::MicropostsController < Admin::ApplicationController
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
   def index
     @microposts = Micropost.all
+    @microposts = @microposts.filter_by_category(params[:category_id]) if params[:category_id].present?
   end
 
   # GET /admin/microposts/1
