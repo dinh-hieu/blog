@@ -1,27 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-12 col-xs-12 profile">
+      <aside>
+        <div class="clearfix">
+          <%= image_tag 'dog.jpg', alt: "dog image", class: "img-circle profile-image" %>
+          <div class="profile-content">
+            <h4>Blog</h4>
+            <p>demo blog</p>
+          </div>
 
-<h1>Microposts</h1>
+          <hr class="hidden-xs hidden-sm">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <div class="social-icons">
+            <p>Share this page:</p>
+            <ul class="clearfix">
+              <li><%= image_tag "social_icons/twitter.png" %></li>
+              <li><%= image_tag "social_icons/facebook.png" %></li>
+              <li><%= image_tag "social_icons/linkedin.png" %></li>
+              <li><%= image_tag "social_icons/googleplus.png" %></li>
+              <li><%= image_tag "social_icons/pinterest.png" %></li>
+              <li><%= image_tag "social_icons/email.png" %></li>
+            </ul>
+          </div>
+        </div>
 
-  <tbody>
-    <% @microposts.each do |micropost| %>
-      <tr>
-        <td><%= micropost.title %></td>
-        <td><%= micropost.content %></td>
-        <td><%= micropost.user_id %></td>
-        <td><%= link_to 'Show', micropost %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <hr class="hidden-md hidden-lg">
 
-<br>
+      </aside>
+    </div>
+
+    <div class="col-md-8">
+      <% @microposts.each do |micropost| %>
+        <article>
+          <header><h2><%= micropost.title %></h2></header>
+          <footer><small>Posted on <%= micropost.created_at.strftime("%d/%m/%Y") %></small></footer>
+          <div class="lead">
+            <%= truncate(strip_tags(micropost.rich_text_content.to_s), length:250, separator:''){link_to "Read More", micropost_path(micropost)}%>
+          </div>
+          <footer>
+            <span class="label label-default"><%= Category.find_by_id(micropost.category_id).name %></span>
+          </footer>
+          <hr>
+        </article>
+      <% end %>
+      <%= paginate @microposts %>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-12 col-xs-12 profile">
+      <aside>
+        <div class="clearfix">
+          <%= image_tag 'dog.jpg', alt: "dog image", class: "img-circle profile-image" %>
+          <div class="profile-content">
+            <h4>Blog</h4>
+            <p>demo blog</p>
+          </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @micropost.title %>
-</p>
+          <hr class="hidden-xs hidden-sm">
 
-<p>
-  <strong>Content:</strong>
-  <%= @micropost.content %>
-</p>
+          <div class="social-icons">
+            <p>Share this page:</p>
+            <ul class="clearfix">
+              <li><%= image_tag "social_icons/twitter.png" %></li>
+              <li><%= image_tag "social_icons/facebook.png" %></li>
+              <li><%= image_tag "social_icons/linkedin.png" %></li>
+              <li><%= image_tag "social_icons/googleplus.png" %></li>
+              <li><%= image_tag "social_icons/pinterest.png" %></li>
+              <li><%= image_tag "social_icons/email.png" %></li>
+            </ul>
+          </div>
+        </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @micropost.user_id %>
-</p>
-<%= link_to 'Back', microposts_path %>
+        <hr class="hidden-md hidden-lg">
+
+      </aside>
+    </div>
+
+    <div class="col-md-8">
+      <article>
+        <h1><%= @micropost.title %></h1>
+        <div class="lead">
+          <%= @micropost.rich_text_content %>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
