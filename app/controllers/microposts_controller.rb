@@ -15,6 +15,6 @@ class MicropostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_micropost
-      @micropost = Micropost.find(params[:id])
+      @micropost = Micropost.friendly.find(params[:id])
     end
 end

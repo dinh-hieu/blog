@@ -4,4 +4,6 @@ class Micropost < ApplicationRecord
   scope :filter_by_category, -> (category_id) { where category_id: category_id }
   has_rich_text :content
   paginates_per 25
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end
